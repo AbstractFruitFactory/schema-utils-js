@@ -25,6 +25,7 @@ export default class MethodNotFoundError implements Error {
 
     if (openrpcDocument.methods.length > 0) {
       msg.push(
+        // @ts-ignore
         `Valid method names are as follows: ${openrpcDocument.methods.map(({ name }) => name).join(", ")}`,
       );
     }

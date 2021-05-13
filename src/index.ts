@@ -6,11 +6,13 @@ import {
   generateMethodResultId,
   ContentDescriptorNotFoundInMethodError,
 } from "./generate-method-id";
-import { MethodCallValidator, ParameterValidationError, MethodNotFoundError } from "./method-call-validator";
+import { ParameterValidationError, MethodNotFoundError } from "./method-call-validator";
 import readSchemaFromFile from "./get-open-rpc-document-from-file";
 import fetchUrlSchema from "./get-open-rpc-document-from-url";
 
 const parseOpenRPCDocument = makeParseOpenRPCDocument(fetchUrlSchema, readSchemaFromFile);
+
+export * from "./method-call-validator"
 
 export {
   dereferenceDocument,
@@ -18,7 +20,6 @@ export {
   generateMethodParamId,
   generateMethodResultId,
   validateOpenRPCDocument,
-  MethodCallValidator,
   ParameterValidationError,
   MethodNotFoundError,
   OpenRPCDocumentValidationError,

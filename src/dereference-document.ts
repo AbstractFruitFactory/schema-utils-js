@@ -25,6 +25,7 @@ const derefItem = async (item: ReferenceObject, doc: OpenRPC) => {
   if ($ref === undefined) { return item; }
 
   try {
+    // @ts-ignore
     return await referenceResolver($ref, doc);
   } catch (err) {
     throw new OpenRPCDocumentDereferencingError([
@@ -186,6 +187,7 @@ export default async function dereferenceDocument(openrpcDocument: OpenRPC): Pro
   derefDoc = await handleSchemasInsideContentDescriptorComponents(derefDoc);
   const methods = [] as any;
   for (const method of derefDoc.methods) {
+    // @ts-ignore
     methods.push(await handleMethod(method, derefDoc));
   }
 

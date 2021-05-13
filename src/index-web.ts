@@ -5,7 +5,7 @@ import {
   generateMethodResultId,
   ContentDescriptorNotFoundInMethodError,
 } from "./generate-method-id";
-import { MethodCallValidator, ParameterValidationError, MethodNotFoundError } from "./method-call-validator";
+import { ParameterValidationError, MethodNotFoundError } from "./method-call-validator";
 import fetchUrlSchema from "./get-open-rpc-document-from-url";
 import { TGetOpenRPCDocument } from "./get-open-rpc-document";
 
@@ -15,13 +15,14 @@ const noop: TGetOpenRPCDocument = (schema: string) => {
 
 const parseOpenRPCDocument = makeParseOpenRPCDocument(fetchUrlSchema, noop);
 
+export * from './method-call-validator'
+
 export {
   parseOpenRPCDocument,
   generateMethodParamId,
   generateMethodResultId,
   validateOpenRPCDocument,
   MethodNotFoundError,
-  MethodCallValidator,
   ParameterValidationError,
   OpenRPCDocumentValidationError,
   ContentDescriptorNotFoundInMethodError,

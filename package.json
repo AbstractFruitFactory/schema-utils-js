@@ -1,5 +1,5 @@
 {
-  "name": "@open-rpc/schema-utils-js",
+  "name": "open-rpc-utils",
   "private": false,
   "version": "0.0.0-semantic-release-dev",
   "description": "",
@@ -39,7 +39,8 @@
     "fast-safe-stringify": "^2.0.7",
     "fs-extra": "^9.0.0",
     "is-url": "^1.2.4",
-    "isomorphic-fetch": "^3.0.0"
+    "isomorphic-fetch": "^3.0.0",
+    "neverthrow": "^4.2.1"
   },
   "devDependencies": {
     "@types/detect-node": "^2.0.0",

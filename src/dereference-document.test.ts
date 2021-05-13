@@ -95,10 +95,15 @@ describe("dereferenceDocument", () => {
     const document = await dereferenceDocument(testDoc);
     expect(document.methods).toBeDefined();
     expect(document.methods[0]).toBeDefined();
+    // @ts-ignore
     expect(document.methods[0].params[0]).toBeDefined();
+    // @ts-ignore
     expect((document.methods[0].params[0] as ContentDescriptorObject).name).toBe("bazerino");
+    // @ts-ignore
     expect(document.methods[0].result).toBeDefined();
+    // @ts-ignore
     expect(((document.methods[0].result as ContentDescriptorObject).schema as JSONSchemaObject).title).toBe("bigOlFoo");
+    // @ts-ignore
     expect(((document.methods[0].params as ContentDescriptorObject[])[1].schema as JSONSchemaObject).title).toBe("bigOlFoo");
   });
 
@@ -148,8 +153,9 @@ describe("dereferenceDocument", () => {
     const document = await dereferenceDocument(testDoc);
     expect(document.methods).toBeDefined();
     expect(document.methods[0]).toBeDefined();
-
+    // @ts-ignore
     const params = document.methods[0].params as ContentDescriptorObject[];
+    // @ts-ignore
     const result = document.methods[0].result as ContentDescriptorObject;
     expect(params).toBeDefined();
     expect(result).toBeDefined();
