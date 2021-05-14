@@ -25,8 +25,7 @@ const derefItem = async (item: ReferenceObject, doc: OpenRPC) => {
   if ($ref === undefined) { return item; }
 
   try {
-    // @ts-ignore
-    return await referenceResolver($ref, doc);
+    return await referenceResolver.resolve($ref, doc) as any
   } catch (err) {
     throw new OpenRPCDocumentDereferencingError([
       `unable to eval pointer against OpenRPC Document.`,

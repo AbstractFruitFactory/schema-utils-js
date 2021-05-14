@@ -5,6 +5,7 @@ import { OpenrpcDocument as OpenRPC, MethodObject, ContentDescriptorObject } fro
 import MethodNotFoundError from "./method-not-found-error"
 import { find, compact } from "../helper-functions"
 import { err, ok, Result } from "neverthrow"
+import dereferenceDocument from "../dereference-document"
 
 const isByName = (params: Record<string, unknown> | unknown[]): params is Record<string, unknown> => !Array.isArray(params)
 
@@ -29,12 +30,14 @@ const isByPosition = (params: Record<string, unknown> | unknown[]): params is un
  * ```
  *
  */
-export const validate = (
-  document: OpenRPC,
+export const validate = async (
+  document_: OpenRPC,
   methodName: string,
   params: Record<string, unknown> | unknown[],
-): Result<undefined, Error[]> => {
+): Promise<Result<undefined, Error[]>> => {
   const ajvValidator = new Ajv()
+
+  const document = await dereferenceDocument(document_)
 
   // @ts-ignore
   document.methods.forEach((method: MethodObject) => {
