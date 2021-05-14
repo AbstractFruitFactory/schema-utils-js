@@ -29,7 +29,8 @@ const derefItem = async (item: ReferenceObject, doc: OpenRPC) => {
   } catch (err) {
     throw new OpenRPCDocumentDereferencingError([
       `unable to eval pointer against OpenRPC Document.`,
-      `error type: ${err.name}`,
+      `error type: ${err.name}`, 
+      `error message: ${err.message}`,
       `instance: ${err.instance}`,
       `token: ${err.token}`,
       `pointer: ${$ref}`,
