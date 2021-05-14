@@ -1,7 +1,7 @@
 {
   "name": "open-rpc-utils",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "build/index.js",
   "browser": "build/index-web.js",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@json-schema-tools/dereferencer": "^1.4.0",
     "@json-schema-tools/meta-schema": "^1.5.10",
-    "@json-schema-tools/reference-resolver": "^1.1.1",
+    "@json-schema-tools/reference-resolver": "^1.2.1",
     "@open-rpc/meta-schema": "^1.14.0",
     "ajv": "^6.10.0",
     "detect-node": "^2.0.4",
