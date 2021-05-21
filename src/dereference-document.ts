@@ -25,7 +25,7 @@ const derefItem = async (item: ReferenceObject, doc: OpenRPC) => {
   if ($ref === undefined) { return item; }
 
   try {
-    if(referenceResolver.resolve) {
+    if(typeof referenceResolver.resolve === 'function') {
       return await referenceResolver.resolve($ref, doc) as any
     }
     // @ts-ignore
